@@ -1,10 +1,11 @@
 ## STACK BÁSICA DO PROJETO
 
-1.Python
-2.Django
-3.Bootstrap
-4.Javascript
-5.PREPARANDO O AMBIENTE
+1.Python</br>
+2.Django</br>
+3.Bootstrap</br>
+4.Javascript</br>
+
+<blockquote> PREPARANDO O AMBIENTE</br>
 
 ## É necessário ter instalado:
 
