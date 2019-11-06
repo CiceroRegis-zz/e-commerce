@@ -2,3 +2,8 @@
 bin/
 include/
 lib/
+__pycache__/
+core/__pycache__/
+core/__init__.py
+ecommerce/__pycache__/settings.cpython-36.pyc
+ecommerce/__pycache__/urls.cpython-36.pyc
