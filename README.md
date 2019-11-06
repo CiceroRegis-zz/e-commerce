@@ -1,13 +1,13 @@
-<h2>STACK BÁSICA DO PROJETO</h2>
-Git
-Github
-Python
-Django
-Bootstrap
-Javascript
-PREPARANDO O AMBIENTE
-É necessário ter instalado:
+## STACK BÁSICA DO PROJETO
 
-Python (nesse projeto vou utilizar o python 3.6.7)
-Virtualenv
-Git
+1.Python
+2.Django
+3.Bootstrap
+4.Javascript
+5.PREPARANDO O AMBIENTE
+
+## É necessário ter instalado:
+
+. Python (nesse projeto vou utilizar o python 3.6.8 e django 2.2.6)
+. Virtualenv
+. Git
