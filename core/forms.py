@@ -32,11 +32,12 @@ class ContactForm(forms.Form):
         )
     )
 
-    def clean_email(self):
-        email = self.cleaned_data['email']
-        if not 'gmail' in email:
-            raise forms.ValidationError('O email deve ser do gmail.com')
-        return email
+
+def clean_email(self):
+    email = self.cleaned_data['email']
+    if not 'gmail' in email:
+        raise forms.ValidationError('O email deve ser do gmail.com')
+    return email
 
 
 class LoginForm(forms.Form):
@@ -49,17 +50,15 @@ class LoginForm(forms.Form):
 class RegisterForm(forms.Form):
     username = forms.CharField()
     email = forms.EmailField()
-    password = forms.CharField(
-        widget=forms.PasswordInput
-    )
-    confirm_password = forms.CharField(label='Confirme sua seha',
-                                       widget=forms.PasswordInput)
+    password = forms.CharField(widget=forms.PasswordInput)
+    confirm_password = forms.CharField(label='Confirm password', widget=forms.PasswordInput)
 
     def clean_username(self):
         username = self.cleaned_data['username']
         queryset = User.objects.filter(username=username)
         if queryset.exists():
             raise forms.ValidationError('Esse usuario já existe, escolha outro nome')
+        return username
 
     def clean_email(self):
         email = self.cleaned_data['email']

@@ -1,7 +1,5 @@
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
-from core.forms import ContactForm
 from django.contrib.auth import authenticate, login, get_user_model
 from .forms import ContactForm, LoginForm, RegisterForm
 
@@ -15,14 +13,14 @@ def login_page(request):
     print('user logged in')
     if form.is_valid():
         print(form.cleaned_data)
-    username = form.cleaned_data['username']
-    password = form.cleaned_data['password']
-    user = authenticate(request, username=username, password=password)
-    print(user)
-    if user is not None:
-        login(request, user)
-        print("Login valido")
-        return redirect('/')
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password']
+        user = authenticate(request, username=username, password=password)
+        print(user)
+        if user is not None:
+            login(request, user)
+            print("Login valido")
+            return redirect('/')
     else:
         print('Login invalido!')
         return render(request, 'auth/login.html', context)
@@ -43,7 +41,7 @@ def register_page(request):
         password = form.cleaned_data['password']
         new_user = User.objects.create_user(username, email, password)
         print(new_user)
-        return render(request, 'auth/register.html', context)
+    return render(request, 'auth/register.html', context)
 
 
 def home_page(request):
