@@ -21,7 +21,7 @@ from django.contrib import admin
 from django.urls import path
 
 from core.views import home_page, about_page, contact_page, login_page, register_page
-from products.views import product_list_view
+from products.views import product_list_view, product_detail_view
 
 urlpatterns = [
     path('', home_page),
@@ -30,6 +30,7 @@ urlpatterns = [
     path('login/', login_page),
     path('register/', register_page),
     path('products/', product_list_view),
+    path('product-detail/<int:pk>', product_detail_view),
     path('admin/', admin.site.urls),
 ]
 if settings.DEBUG:
