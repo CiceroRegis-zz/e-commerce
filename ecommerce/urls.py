@@ -19,11 +19,13 @@ from django.conf.urls.static import static
 
 from django.contrib import admin
 from django.urls import path
+from filebrowser.sites import site
 
 from core.views import home_page, about_page, contact_page, login_page, register_page
 from products.views import product_list_view, product_detail_view
 
 urlpatterns = [
+    path('admin/filebrowser/', site.urls),
     path('', home_page),
     path('about/', about_page),
     path('contact/', contact_page),
