@@ -4,8 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Product
 
 
-# Traz todos os produtos do banco de dados sem filtrar nada
-def product_list_view(request):
+def product_list_view(request):  # returns all database products without filtering anything
     queryset = Product.objects.all()
     context = {
         'object_list': queryset
@@ -13,7 +12,7 @@ def product_list_view(request):
     return render(request, "products/list.html", context)
 
 
-def product_detail_view(request, pk=None, *args, **kwargs):
+def product_detail_view(request, pk=None, *args, **kwargs):  # returns product by id database
     print(args)
     print(kwargs)
     qs = Product.objects.filter(id=pk)
