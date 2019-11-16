@@ -16,10 +16,13 @@ def product_list_view(request):
 def product_detail_view(request, pk=None, *args, **kwargs):
     print(args)
     print(kwargs)
-    # queryset = Product.objects.get(pk=pk)   # get the object id
-    queryset = get_object_or_404(Product, pk=pk)
+    qs = Product.objects.filter(id=pk)
+    if qs.exists():
+        queryset = qs.first()
+    else:
+        raise Http404("Esse produto não existe!")
 
     context = {
         'object': queryset
     }
-    return render(request, 'products/detail.html', context)
+    return render(request, "products/detail.html", context)
