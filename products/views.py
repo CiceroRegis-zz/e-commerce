@@ -17,7 +17,7 @@ def product_detail_view(request, pk=None, *args, **kwargs):
     print(args)
     print(kwargs)
     qs = Product.objects.filter(id=pk)
-    if qs.exists():
+    if qs.count() == 1:
         queryset = qs.first()
     else:
         raise Http404("Esse produto não existe!")
