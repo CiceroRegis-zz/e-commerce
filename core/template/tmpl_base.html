@@ -1,13 +1,17 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
+{% include 'base/css.html' %}
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Base Template</title>
+    {% block base_head %}{% endblock base_head %}
 </head>
 <body>
-{% block content %} {% endblock %}
+    {% include 'base/navbar.html' %}
+    {% block content %} {% endblock %}
+    {% include 'base/js.html' %}
 </body>
 </html>
