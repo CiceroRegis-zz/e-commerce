@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card" style="width: 18rem;">
+    {% if instance.image %}
+        <a href="{{ instance.get_absolute_url }}">
+             <img src="{{ instance.image.url }}" class="card-img-top" alt="{{ instance.title }} logo">
+        <a/>
+    {% endif %}
+    <div class="card-body">
+        <b class="card-title">{{ instance.title }}</b>
+        <p class="card-text">{{ instance.description }}</p>
+        <a href="{{ instance.get_absolute_url }}" class="btn btn-primary">Detalhe</a>
+    </div>
+</div>
+</body>
+</html>
