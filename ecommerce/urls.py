@@ -26,14 +26,14 @@ from products.views import product_list_view, product_detail_view, ProductFeatur
     ProductDetailSlugView
 
 urlpatterns = [
-    path('admin/filebrowser/', site.urls),
-    path('', home_page),
-    path('about/', about_page),
-    path('contact/', contact_page),
-    path('login/', login_page),
-    path('register/', register_page),
-    path('', include("products.urls")),
     path('admin/', admin.site.urls),
+    path('', home_page, name='home'),
+    path('about/', about_page, name='about'),
+    path('contact/', contact_page, name='contact'),
+    path('login/', login_page, name='login'),
+    path('register/', register_page, name='register'),
+    path('', include("products.urls", namespace="products")),
+
 ]
 if settings.DEBUG:
     urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
