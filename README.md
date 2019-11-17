@@ -1,13 +1,8 @@
-<h2>STACK BÁSICA DO PROJETO</h2>
-Git
-Github
-Python
-Django
-Bootstrap
-Javascript
-PREPARANDO O AMBIENTE
-É necessário ter instalado:
+### STACK BÁSICA DO PROJETO
 
-Python (nesse projeto vou utilizar o python 3.6.7)
-Virtualenv
-Git
+  [![PyPI version](https://img.shields.io/pypi/pyversions/spleeter)](https://www.python.org/doc/)
+  [![ENV](https://img.shields.io/badge/django-2.2.6-green.svg)](https://github.com/pylixm/django-mdeditor) </br>
+- Bootstrap 4.3</br>
+- Javascript</br>
+
+
