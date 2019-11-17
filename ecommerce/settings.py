@@ -119,7 +119,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'www', 'media')
-STATIC_ROOT = "static"
+STATIC_ROOT = "core/static"
 
 # Locale path
 # https://docs.djangoproject.com/en/2.2/ref/settings/#std:setting-LOCALE_PATHS

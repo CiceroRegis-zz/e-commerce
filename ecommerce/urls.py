@@ -22,7 +22,7 @@ from django.urls import path
 from filebrowser.sites import site
 
 from core.views import home_page, about_page, contact_page, login_page, register_page
-from products.views import product_list_view, product_detail_view
+from products.views import product_list_view, product_detail_view, ProductFeaturedListView, ProductFeaturedDetailView
 
 urlpatterns = [
     path('admin/filebrowser/', site.urls),
@@ -31,6 +31,8 @@ urlpatterns = [
     path('contact/', contact_page),
     path('login/', login_page),
     path('register/', register_page),
+    path('featured/', ProductFeaturedListView.as_view()),
+    path('featured/<int:pk>/', ProductFeaturedDetailView.as_view()),
     path('products/', product_list_view),
     path('product-detail/<int:pk>', product_detail_view),
     path('admin/', admin.site.urls),
