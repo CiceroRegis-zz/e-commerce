@@ -18,7 +18,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from filebrowser.sites import site
 
 from core.views import home_page, about_page, contact_page, login_page, register_page
@@ -32,11 +32,7 @@ urlpatterns = [
     path('contact/', contact_page),
     path('login/', login_page),
     path('register/', register_page),
-    path('featured/', ProductFeaturedListView.as_view()),
-    path('featured/<int:pk>/', ProductFeaturedDetailView.as_view()),
-    path('products/<slug:slug>/', ProductDetailSlugView.as_view()),
-    path('products/', product_list_view),
-    path('product-detail/<int:pk>', product_detail_view),
+    path('', include("products.urls")),
     path('admin/', admin.site.urls),
 ]
 if settings.DEBUG:
