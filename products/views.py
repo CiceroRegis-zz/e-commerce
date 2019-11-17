@@ -29,6 +29,23 @@ def product_list_view(request):  # returns all database products without filteri
     return render(request, "products/list.html", context)
 
 
+class ProductDetailSlugView(DetailView):
+    queryset = Product.objects.all()
+    template_name = "products/detail.html"
+
+    def get_object(self, *args, **kwargs):
+        slug = self.kwargs.get('slug')
+        # instance = get_object_or_404(Product, slug = slug, active = True)
+        try:
+            product = Product.objects.get(slug=slug, active=True)
+        except Product.DoesNotExist:
+            raise Http404("Não encontrado!")
+        except Product.MultipleObjectsReturned:
+            qs = Product.objects.filter(slug=slug, active=True)
+            product = qs.first()
+        return product
+
+
 def product_detail_view(request, pk=None, *args, **kwargs):  # returns product by id database
     print(args)
     print(kwargs)
