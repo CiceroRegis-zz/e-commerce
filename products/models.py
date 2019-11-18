@@ -43,6 +43,7 @@ class Product(models.Model):  # product model
     slug = models.SlugField(blank=True, unique=True)
     featured = models.BooleanField(default=False)
     active = models.BooleanField(default=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
     objects = ProductManager()  # return product by id
 
     def get_absolute_url(self):

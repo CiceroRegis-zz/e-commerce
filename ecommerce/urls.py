@@ -22,11 +22,10 @@ from django.urls import path, include
 from filebrowser.sites import site
 
 from core.views import home_page, about_page, contact_page, login_page, register_page, logout_page
-from products.views import product_list_view, product_detail_view, ProductFeaturedListView, ProductFeaturedDetailView, \
-    ProductDetailSlugView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('admin/filebrowser/', site.urls),
     path('', home_page, name='home'),
     path('about/', about_page, name='about'),
     path('contact/', contact_page, name='contact'),
