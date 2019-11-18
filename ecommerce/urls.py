@@ -21,7 +21,7 @@ from django.contrib import admin
 from django.urls import path, include
 from filebrowser.sites import site
 
-from core.views import home_page, about_page, contact_page, login_page, register_page
+from core.views import home_page, about_page, contact_page, login_page, register_page, logout_page
 from products.views import product_list_view, product_detail_view, ProductFeaturedListView, ProductFeaturedDetailView, \
     ProductDetailSlugView
 
@@ -32,6 +32,7 @@ urlpatterns = [
     path('contact/', contact_page, name='contact'),
     path('login/', login_page, name='login'),
     path('register/', register_page, name='register'),
+    path('logout/', logout_page, name='logout'),
     path('', include("products.urls", namespace="products")),
 
 ]
