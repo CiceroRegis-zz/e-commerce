@@ -1,7 +1,8 @@
 {% extends 'tmpl_base.html' %}
 
 {% block content %}
-    <p>Nome do produto: {{ object.title }}</p>
-    <p>Descrição do produto: {{ object.description }}</p>
+    <p>Nome do produto: {{ object.title|title }}</p>
+    {{ object.timestamp|timesince }} atrás
+    <p>Descrição do produto: {{ object.description|linebreaks }}</p>
     <p><img src="{{ object.image.url }}" class="img-fluid"></p>
 {% endblock content %}

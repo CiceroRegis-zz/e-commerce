@@ -21,19 +21,19 @@ from django.contrib import admin
 from django.urls import path, include
 from filebrowser.sites import site
 
-from core.views import home_page, about_page, contact_page, login_page, register_page
-from products.views import product_list_view, product_detail_view, ProductFeaturedListView, ProductFeaturedDetailView, \
-    ProductDetailSlugView
+from core.views import home_page, about_page, contact_page, login_page, register_page, logout_page
 
 urlpatterns = [
-    path('admin/filebrowser/', site.urls),
-    path('', home_page),
-    path('about/', about_page),
-    path('contact/', contact_page),
-    path('login/', login_page),
-    path('register/', register_page),
-    path('', include("products.urls")),
     path('admin/', admin.site.urls),
+    path('admin/filebrowser/', site.urls),
+    path('', home_page, name='home'),
+    path('about/', about_page, name='about'),
+    path('contact/', contact_page, name='contact'),
+    path('login/', login_page, name='login'),
+    path('register/', register_page, name='register'),
+    path('logout/', logout_page, name='logout'),
+    path('', include("products.urls", namespace="products")),
+
 ]
 if settings.DEBUG:
     urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
