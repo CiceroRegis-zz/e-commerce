@@ -1,22 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:height="http://www.w3.org/1999/xhtml">
+
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
 <body>
-<div class="card" style="width: 18rem;">
-    {% if instance.image %}
-        <a href="{{ instance.get_absolute_url }}">
-             <img src="{{ instance.image.url }}" class="card-img-top" alt="{{ instance.title }} logo">
-        <a/>
-    {% endif %}
-    <div class="card-body">
-        <b class="card-title">{{ instance.title }}</b>
-        <p class="card-text">{{ instance.description|truncatewords:14 }}</p>
-        <a href="{{ instance.get_absolute_url }}" class="btn btn-primary">Detalhe</a>
-        <a href="{% url 'products:detail' slug=instance.slug %}" class="btn btn-warning">Atalho para a URL</a>
+    <div class="container-fluid my-reserve">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                <div class="card" style="width: 18rem;">
+                    {% if instance.image %}
+                    <a class="product-card" href="{{ instance.get_absolute_url }}">
+                        <img class="card-img-top" src="{{ instance.image.url }}" alt="{{ instance.title }} logo"
+                            class="d-block w-100" width="100%" height="200">
+                        <a/>
+                        {% else %}
+                        <img src="https://via.placeholder.com/780x520" class="d-block w-100" width="100%" height="180"
+                            alt="...">
+                        {% endif %}
+                        <div class="card-body content">
+                            <h5 class="card-title">{{ instance.title }}</h5>
+                            <div class="card-text text-info">{{ instance.description|truncatewords:12 }}</div>
+                            <div class="card-footer">
+                                R$ <strong>{{ instance.price }}</strong>
+                                <a href="{{ instance.get_absolute_url }}"
+                                    class="btn btn-primary float-right btn-sm">Detalhe</a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 </body>
+
 </html>

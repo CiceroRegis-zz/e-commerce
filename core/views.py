@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 
 from django.contrib.auth import authenticate, login, get_user_model, logout
+
+from products.models import Product
 from .forms import ContactForm, LoginForm, RegisterForm
 
 
@@ -53,7 +55,10 @@ def register_page(request):
 
 
 def home_page(request):
+    featured = Product.objects.all().featured()
+
     context = {
+        'featured': featured,
         'title': 'pagina principal',
         'content': 'Bem vindo a pagina principal'
     }
