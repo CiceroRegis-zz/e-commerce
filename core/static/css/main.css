@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 .card {
     padding:20px;
 
+=======
+
+.card {
+    padding:20px;
+
+
+>>>>>>> feature/featured-product
 }
 .my-reserve .card{
     position: relative;
@@ -13,6 +21,10 @@
 
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> feature/featured-product
 .content {
     margin-top: auto;
     margin-right: -10px;

@@ -28,11 +28,10 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG') == True
 
-
-
 ALLOWED_HOSTS = [
     '*'
 ]
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',

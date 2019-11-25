@@ -1,11 +1,15 @@
 
 {% extends "tmpl_base.html" %}
+{% load static %}
+{% block base_head %}
+    <link rel='stylesheet' href='{% static "css/main.css" %}'>
+{% endblock base_head %}
 {% block content %}
-    <div class='container'>
+    <div class='container-fluid'>
         <div class='row'>
-            {% for obj in object_list %}
-                <div class='col'>
-                    {% include 'products/snippets/card.html' with instance=obj %}
+            {% for products in object_list %}
+                <div>
+                    {% include 'products/snippets/card.html' with instance=products %}
                 </div>
             {% endfor%}
         </div>

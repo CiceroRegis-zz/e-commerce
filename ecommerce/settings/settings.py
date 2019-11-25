@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,12 +27,8 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+ALLOWED_HOSTS = []
 
-
-ALLOWED_HOSTS = [
-    'localhost',
-    '.herokuapp.com'
-]
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -93,6 +88,8 @@ DATABASES = {
      }
  }
 
+
+
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -126,8 +123,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'www', 'media')
+# STATIC_ROOT = "core/static"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfile')
-
 
 # Locale path
 # https://docs.djangoproject.com/en/2.2/ref/settings/#std:setting-LOCALE_PATHS
@@ -140,6 +137,12 @@ LOCALE_PATHS = [
 FILEBROWSER_EXTENSIONS = {
     'Image': ['.jpg', '.jpeg', '.gif', '.png'],
 }
+FILEBROWSER_VERSIONS = {
+     'admin_thumbnail': {'verbose_name': 'Admin Thumbnail', 'width': 60, 'height': 60, 'opts': 'crop'},
+  'thumbnail': {'verbose_name': 'Thumbnail (1 col)', 'width': 60, 'height': 60, 'opts': 'crop'},
+  'small': {'verbose_name': 'Small (2 col)', 'width': 140, 'height': '', 'opts': ''},
+  'medium': {'verbose_name': 'Medium (4col )', 'width': 300, 'height': '', 'opts': ''},
+  'big': {'verbose_name': 'Big (6 col)', 'width': 460, 'height': '', 'opts': ''},
+  'large': {'verbose_name': 'Large (8 col)', 'width': 680, 'height': '', 'opts': ''},
+}
 FILEBROWSER_DIRECTORY = ''
-
-django_heroku.settings(locals())

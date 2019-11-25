@@ -4,8 +4,12 @@
 {% url 'login' as login_url %}
 {% url 'register' as register_url %}
 {% url 'logout' as logout_url %}
+<<<<<<< HEAD
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+=======
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+>>>>>>> feature/featured-product
   <a class="navbar-brand" href="{{ home_url }}">{% if nome_da_marca %} {{ nome_da_marca }} {% else %} C&oacute;digo Fluente eCommerce {% endif %}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -36,7 +40,15 @@
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline-success mr-sm-4" type="submit">Search</button>
     </form>
+
+    {% if request.user.is_authenticated %}
+    <div class="row">
+      <div class="col-sm-6 col-md-12 col-lg-12" >
+      <p class="text-white mr-sm-2"  style="padding-top:10px;">Usuário, {{ user.username }}</p>
+    </div>
+  </div>
+    {% endif %}
   </div>
 </nav>

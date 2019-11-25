@@ -32,7 +32,6 @@ class ProductManager(models.Manager):
             return qs.first()
         return None
 
-
 class Product(models.Model):  # product model
 
     title = models.CharField(max_length=120)
