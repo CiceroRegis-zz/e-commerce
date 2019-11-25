@@ -26,13 +26,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG') == True
 
 
 
 ALLOWED_HOSTS = [
-    'localhost',
-    '.herokuapp.com'
+    '*'
 ]
 # Application definition
 INSTALLED_APPS = [
@@ -82,16 +81,6 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.mysql',
-         'NAME': 'ecommerce',
-         'USER': 'root',
-         'PASSWORD': 'Meups32019',
-         'HOST': 'localhost',
-         'PORT': '3306',
-     }
- }
 
 DATABASES = {
     'default': {
