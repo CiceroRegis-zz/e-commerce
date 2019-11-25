@@ -10,3 +10,4 @@ ecommerce/__pycache__/urls.cpython-36.pyc
 www/media/
 www/media/_versions/
 www/media/_versions/_versions/_versions/
+local_settings.py
