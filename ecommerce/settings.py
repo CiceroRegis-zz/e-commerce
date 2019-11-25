@@ -23,11 +23,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECRET_KEY = 'v$$812=8n=1rtepfvc@u+#qowzz-_+zdo7=pexclnht7q654_('
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = os.environ.get('DEBUG') == True
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-ALLOWED_HOSTS = []
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+
+
+ALLOWED_HOSTS = [
+    'localhost',
+    '.herokuapp.com'
+]
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
