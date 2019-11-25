@@ -20,17 +20,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'v$$812=8n=1rtepfvc@u+#qowzz-_+zdo7=pexclnht7q654_('
-SECRET_KEY = os.environ.get('SECRET_KEY')
+  SECRET_KEY = 'v$$812=8n=1rtepfvc@u+#qowzz-_+zdo7=pexclnht7q654_('
+# SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 DEBUG = os.environ.get('DEBUG') == True
 
 ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ['https://ecommerce-br.herokuapp.com/']
-# Application definition
 
+# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -129,8 +128,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'www', 'media')
-# STATIC_ROOT = "core/static"
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfile')
+STATIC_ROOT = "core/static"
+
 
 
 # Locale path
