@@ -24,7 +24,6 @@ class ProductManager(models.Manager):
         return self.get_queryset().active()
 
     def featured(self):
-        # return self.get_queryset().filter(featured = True)
         return self.get_queryset().featured()
 
     def get_by_id(self, id):
@@ -47,7 +46,6 @@ class Product(models.Model):  # product model
     objects = ProductManager()  # return product by id
 
     def get_absolute_url(self):
-        # return "/products/{slug}/".format(slug=self.slug)
         return reverse("products:detail", kwargs={"slug": self.slug})
 
     def __str__(self):
