@@ -86,12 +86,7 @@ DATABASES = {
      }
  }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -126,7 +121,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'www', 'media')
-STATIC_ROOT = "core/static"
+# STATIC_ROOT = "core/static"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfile')
 
 # Locale path
 # https://docs.djangoproject.com/en/2.2/ref/settings/#std:setting-LOCALE_PATHS
