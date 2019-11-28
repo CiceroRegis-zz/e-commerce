@@ -7,23 +7,19 @@
 {% endblock base_head %}
 {% block content %}
    
-
-    <div class='text-center'>
-        <h1>{{ title }}</h1>
-        <p>{{ content }}</p>
     </div>
             <div>
+                
              {% include 'products/snippets/carousel.html' with instance=obj %}
         </div>
     <div class='container-fluid'>
         <div class='row'>
-            {% for obj in featured %}
+            {% for obj in allProducts %}
                 <div>
                  {% include 'products/snippets/card.html' with instance=obj %}
             </div>
             {% endfor %}
         </div>
-
     </div>
     
 {% endblock %}
