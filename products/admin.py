@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Product
+from .models import Product, CarouselImageHome
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -11,3 +11,11 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Product, ProductAdmin)
+
+
+@admin.register(CarouselImageHome)
+class CarouselImageHomeAdmin(admin.ModelAdmin):
+
+    class meta:
+        model = CarouselImageHome
+        extra = 1

@@ -10,8 +10,10 @@
     {% block base_head %}{% endblock base_head %}
 </head>
 <body>
+    
     {% include 'base/navbar.html' with nome_da_marca='E-commerce' %}
     {% block content %} {% endblock %}
     {% include 'base/js.html' %}
+
 </body>
 </html>
