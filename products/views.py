@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView
 
 from .models import Product
 
+
 class ProductFeaturedListView(ListView):
     template_name = "products/list.html"
 
@@ -18,7 +19,6 @@ class ProductFeaturedDetailView(DetailView):
     # def get_queryset(self, *args, **kwargs):
     # request = self.request
     # return Product.objects.featured()
-
 
 
 # returns all database products without filtering anything

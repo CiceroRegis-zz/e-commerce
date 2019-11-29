@@ -30,7 +30,6 @@ class ProductManager(models.Manager):
     def useImage(self):
         return self.get_queryset().use()
 
-
     def get_by_id(self, id):
         qs = self.get_queryset().filter(id=id)
         if qs.count() == 1:
@@ -42,8 +41,7 @@ class Product(models.Model):  # product model
 
     title = models.CharField(max_length=120)
     description = models.TextField()
-    price = models.DecimalField(
-        decimal_places=2, max_digits=20, default=100.00)
+    price = models.DecimalField(decimal_places=2, max_digits=20, default=100.00)
     image = FileBrowseField('products', max_length=200, null=True, blank=False)
     slug = models.SlugField(blank=True, unique=True)
     featured = models.BooleanField(default=False)
@@ -62,13 +60,16 @@ def product_pre_save_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = unique_slug_generator(instance)
 
+
 pre_save.connect(product_pre_save_receiver, sender=Product)
 
 
 class CarouselImageHome(models.Model):
 
-    carouselImage = FileBrowseField('carouselImage', max_length=200, null=True, blank=False)
-    createAt = models.DateTimeField( null=False, blank=False, editable=False, auto_now_add=True)
+    carouselImage = FileBrowseField(
+        'carouselImage', max_length=200, null=True, blank=False)
+    createAt = models.DateTimeField(
+        null=False, blank=False, editable=False, auto_now_add=True)
     use = models.BooleanField(default=False)
 
     def __str__(self):
