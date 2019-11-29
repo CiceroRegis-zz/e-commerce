@@ -143,3 +143,4 @@ FILEBROWSER_VERSIONS = {
   'large': {'verbose_name': 'Large (8 col)', 'width': 680, 'height': '', 'opts': ''},
 }
 FILEBROWSER_DIRECTORY = ''
+USE_THOUSAND_SEPARATOR = True

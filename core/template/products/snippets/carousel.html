@@ -19,7 +19,7 @@
         <div class="carousel-inner" style="margin-top: 65px;">
             {% for obj in imageProducts.all %}
             {% if forloop.first %}
-            <div class="carousel-item active">
+            <div class="carousel-item active" style="height: 333px;">
                 <img src="{{ obj.carouselImage.url }}" class="d-block w-100" alt="imagens de produtos em destaques">
             </div>
             {% else %}
