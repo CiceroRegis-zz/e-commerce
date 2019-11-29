@@ -9,9 +9,9 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-12">
+    <div class="container-fluid">
+        <div class="row row-cols-12 row-cols-sm-12 row-cols-md-4">
+          <div class="col-md-12">
                 <div id="product_carousel" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         {% for obj in featured.all %}
@@ -23,13 +23,13 @@
                         {% for obj in featured.all %}
                         {% if forloop.first %}
                         <div class="carousel-item active">
-                            <img src="{{ obj.carouselImage.url }}" height="500" class="d-block w-100"
+                            <img src="{{ obj.carouselImage.url }}" class="d-block w-100"
                                 alt="imagens de produtos em destaques">
                         </div>
                         {% else %}
 
                         <div class="carousel-item">
-                            <img src="{{ obj.carouselImage.url }}" height="500" class="d-block w-100"
+                            <img src="{{ obj.carouselImage.url }}" height="200" class="d-block w-100"
                                 alt="imagens de produtos em destaques">
                         </div>
                         {% endif %}

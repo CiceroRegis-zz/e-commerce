@@ -61,7 +61,7 @@ def home_page(request):
         'allProducts': allProducts,
         'featured': featured,
     }
-    
+
     return render(request, "home_page.html", context)
 
 
@@ -83,6 +83,5 @@ def contact_page(request):
     if request.method == 'POST' and contact_form.is_valid():
         contact_form.cleaned_data
         print(contact_form.cleaned_data)
-    # if request.method == 'POST':
-    #     print(request.POST)
+
     return render(request, 'contact/view.html', context)

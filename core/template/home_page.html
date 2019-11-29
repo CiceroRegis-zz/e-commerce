@@ -3,24 +3,22 @@
 
 <title>Home Page Template</title>
 {% block base_head %}
-    <link rel='stylesheet' href='{% static "css/main.css" %}'>
+<link rel='stylesheet' href='{% static "css/main.css" %}'>
 {% endblock base_head %}
 {% block content %}
-   
-    </div>
-            <div>
-                
-             {% include 'products/snippets/carousel.html' with instance=obj %}
-        </div>
-    <div class='container-fluid'>
-        <div class='row'>
-            {% for obj in allProducts %}
-                <div>
-                 {% include 'products/snippets/card.html' with instance=obj %}
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-    
-{% endblock %}
 
+</div>
+<div>
+    {% include 'products/snippets/carousel.html' with instance=obj %}
+</div>
+<div class='container-fluid'>
+    <div class='row'>
+        {% for obj in allProducts %}
+        <div>
+            {% include 'products/snippets/card.html' with instance=obj %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
