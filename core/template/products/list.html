@@ -7,6 +7,7 @@
 {% block content %}
     <div class='container-fluid'>
         <div class='row'>
+              
             {% for products in object_list %}
                 <div>
                     {% include 'products/snippets/card.html' with instance=products %}
