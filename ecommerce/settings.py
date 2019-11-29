@@ -80,18 +80,11 @@ DATABASES = {
          'ENGINE': 'django.db.backends.mysql',
          'NAME': 'ecommerce',
          'USER': 'root',
-         'PASSWORD': 'Meups32019',
+         'PASSWORD': 'root',
          'HOST': 'localhost',
          'PORT': '3306',
      }
  }
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 
 # Password validation
@@ -150,3 +143,4 @@ FILEBROWSER_VERSIONS = {
   'large': {'verbose_name': 'Large (8 col)', 'width': 680, 'height': '', 'opts': ''},
 }
 FILEBROWSER_DIRECTORY = ''
+USE_THOUSAND_SEPARATOR = True

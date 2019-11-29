@@ -8,29 +8,29 @@
 </head>
 
 <body>
-    <div class="container-fluid my-reserve">
-        <div class="row">
-            <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
-                <div class="card" style="width: 18rem;">
-                    {% if instance.image %}
-                    <a class="product-card" href="{{ instance.get_absolute_url }}">
-                        <img class="card-img-top" src="{{ instance.image.url }}" alt="{{ instance.title }} logo"
-                            class="d-block w-100" width="100%" height="200">
-                        <a/>
-                        {% else %}
-                        <img src="https://via.placeholder.com/780x520" class="d-block w-100" width="100%" height="180"
-                            alt="...">
-                        {% endif %}
-                        <div class="card-body content">
-                            <h5 class="card-title">{{ instance.title }}</h5>
-                            <div class="card-text text-info">{{ instance.description|truncatewords:12 }}</div>
-                            <div class="card-footer">
-                                R$ <strong>{{ instance.price }}</strong>
-                                <a href="{{ instance.get_absolute_url }}"
-                                    class="btn btn-primary float-right btn-sm">Detalhe</a>
+    <div class="container-fluid my-card">
+        <div class="col-12 col-sm-6 col-md-8 offset-md-2 col-lg-6 offset-lg-0">
+            <div class="card" style="width: 16rem;">
+                {% if instance.image %}
+                <a class="product-card" href="{{ instance.get_absolute_url }}">
+                    <img class="card-img-top" src="{{ instance.image.url }}" alt="{{ instance.title }} logo"
+                        class="d-block w-100" width="212" height="212">
+                    <a />
+                    {% else %}
+                    <img src="https://via.placeholder.com/780x520" class="d-block w-100" width="100%" height="212"
+                        alt="...">
+                    {% endif %}
+                    <div class="card-body content" style="margin-bottom:-16px;">
+                        <small>
+                            <div class="card-text text-muted">{{ instance.description|truncatewords:8 }}
                             </div>
+                        </small>
+                        <div class="card-footer">
+                            R$ <strong>{{ instance.price }}</strong>
+                            <a href="{{ instance.get_absolute_url }}"
+                                class="btn btn-primary float-right btn-sm">Comprar</a>
                         </div>
-                </div>
+                    </div>
             </div>
         </div>
     </div>
