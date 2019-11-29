@@ -5,10 +5,13 @@
     <title>Title</title>
 </head>
 <body>
+
 {{ object.title }}
 {{ object.description }}
 {% if object.image %}
     <img src='{{ object.image.url }}' class='img-fluid'/>
+    
 {% endif %}
 </body>
+
 </html>

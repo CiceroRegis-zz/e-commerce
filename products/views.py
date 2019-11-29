@@ -21,10 +21,12 @@ class ProductFeaturedDetailView(DetailView):
     # return Product.objects.featured()
 
 
-def product_list_view(request):  # returns all database products without filtering anything
-    queryset = Product.objects.all()
+# returns all database products without filtering anything
+def product_list_view(request):
+    querysetProduct = Product.objects.all()
     context = {
-        'object_list': queryset
+        'object_list': querysetProduct,
+
     }
     return render(request, "products/list.html", context)
 
@@ -46,7 +48,8 @@ class ProductDetailSlugView(DetailView):
         return product
 
 
-def product_detail_view(request, pk=None, *args, **kwargs):  # returns product by id database
+# returns product by id database
+def product_detail_view(request, pk=None, *args, **kwargs):
     print(args)
     print(kwargs)
     qs = Product.objects.filter(id=pk)

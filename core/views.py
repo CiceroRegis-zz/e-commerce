@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 from django.contrib.auth import authenticate, login, get_user_model, logout
 
-from products.models import Product
+from products.models import Product, CarouselImageHome
 from .forms import ContactForm, LoginForm, RegisterForm
 
 
@@ -55,15 +55,14 @@ def register_page(request):
 
 
 def home_page(request):
-    featured = Product.objects.all().featured()
-
+    allProducts = Product.objects.all()
+    featured = CarouselImageHome.objects.all()
+    imageProducts = featured.filter(use=True)
     context = {
-        'featured': featured,
-        'title': 'pagina principal',
-        'content': 'Bem vindo a pagina principal'
+        'allProducts': allProducts,
+        'imageProducts': imageProducts,
     }
-    if request.user.is_authenticated:
-        context['premium_content'] = 'Voçe é um usuario Premium'
+
     return render(request, "home_page.html", context)
 
 
@@ -85,6 +84,5 @@ def contact_page(request):
     if request.method == 'POST' and contact_form.is_valid():
         contact_form.cleaned_data
         print(contact_form.cleaned_data)
-    # if request.method == 'POST':
-    #     print(request.POST)
+
     return render(request, 'contact/view.html', context)
