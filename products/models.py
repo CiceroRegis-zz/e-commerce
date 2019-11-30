@@ -59,7 +59,6 @@ pre_save.connect(product_pre_save_receiver, sender=Product)
 
 
 class CarouselImageHome(models.Model):
-
     carouselImage = FileBrowseField('carouselImage', max_length=200, null=True, blank=False)
     createAt = models.DateTimeField(null=False, blank=False, editable=False, auto_now_add=True)
     updateAt = models.DateTimeField(null=False, blank=False, editable=False, auto_now=True)
