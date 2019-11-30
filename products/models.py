@@ -4,7 +4,6 @@ from filebrowser.fields import FileBrowseField
 from .utils import unique_slug_generator
 from django.db.models.signals import pre_save
 from django.urls import reverse
-from django.utils.translation import gettext_lazy as _
 
 
 # Create your models here.
@@ -23,9 +22,6 @@ class ProductManager(models.Manager):
 
     def all(self):
         return self.get_queryset().active()
-
-    def useImage(self):
-        return self.get_queryset().use()
 
     def get_by_id(self, id):
         qs = self.get_queryset().filter(id=id)
@@ -64,15 +60,10 @@ pre_save.connect(product_pre_save_receiver, sender=Product)
 
 class CarouselImageHome(models.Model):
 
-    STATUS = (
-        ('active', 'Ativo'),
-        ('disabled', 'desativado')
-    )
     carouselImage = FileBrowseField('carouselImage', max_length=200, null=True, blank=False)
     createAt = models.DateTimeField(null=False, blank=False, editable=False, auto_now_add=True)
     updateAt = models.DateTimeField(null=False, blank=False, editable=False, auto_now=True)
     use = models.BooleanField(default=False)
-    status = models.CharField(max_length=15, choices=STATUS)
 
     def __str__(self):
         return format(self.carouselImage)
