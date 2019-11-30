@@ -41,6 +41,7 @@ class Product(models.Model):  # product model
 
     title = models.CharField(max_length=250)
     description = models.TextField()
+    amount =  models.IntegerField()
     price = models.DecimalField(decimal_places=2, max_digits=20)
     image = FileBrowseField('products', max_length=200, null=True, blank=False)
     slug = models.SlugField(blank=True, unique=True)
