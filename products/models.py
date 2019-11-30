@@ -16,9 +16,6 @@ class ProductQuerySet(models.query.QuerySet):
     def featured(self):
         return self.filter(featured=True, active=True)
 
-    def use(self):
-        return self.filter(use=True)
-
 
 class ProductManager(models.Manager):
     def get_queryset(self):
@@ -39,9 +36,10 @@ class ProductManager(models.Manager):
 
 class Product(models.Model):  # product model
 
-    title = models.CharField(max_length=120)
+    title = models.CharField(max_length=250)
     description = models.TextField()
-    price = models.DecimalField(decimal_places=2, max_digits=20, default=100.00)
+    price = models.DecimalField(decimal_places=2, max_digits=20)
+    amount = models.IntegerField()
     image = FileBrowseField('products', max_length=200, null=True, blank=False)
     slug = models.SlugField(blank=True, unique=True)
     featured = models.BooleanField(default=False)
@@ -66,11 +64,15 @@ pre_save.connect(product_pre_save_receiver, sender=Product)
 
 class CarouselImageHome(models.Model):
 
-    carouselImage = FileBrowseField(
-        'carouselImage', max_length=200, null=True, blank=False)
-    createAt = models.DateTimeField(
-        null=False, blank=False, editable=False, auto_now_add=True)
+    STATUS = (
+        ('active', 'Ativo'),
+        ('disabled', 'desativado')
+    )
+    carouselImage = FileBrowseField('carouselImage', max_length=200, null=True, blank=False)
+    createAt = models.DateTimeField(null=False, blank=False, editable=False, auto_now_add=True)
+    updateAt = models.DateTimeField(null=False, blank=False, editable=False, auto_now=True)
     use = models.BooleanField(default=False)
+    status = models.CharField(max_length=15, choices=STATUS)
 
     def __str__(self):
         return format(self.carouselImage)
