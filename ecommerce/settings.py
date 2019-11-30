@@ -75,23 +75,16 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#      'default': {
-#          'ENGINE': 'django.db.backends.mysql',
-#          'NAME': 'ecommerce',
-#          'USER': 'root',
-#          'PASSWORD': 'root',
-#          'HOST': 'localhost',
-#          'PORT': '3306',
-#      }
-#  }
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+     'default': {
+         'ENGINE': 'django.db.backends.mysql',
+         'NAME': 'ecommerce',
+         'USER': 'root',
+         'PASSWORD': 'root',
+         'HOST': 'localhost',
+         'PORT': '3306',
+     }
+ }
 
 
 # Password validation
@@ -142,7 +135,7 @@ FILEBROWSER_EXTENSIONS = {
     'Image': ['.jpg', '.jpeg', '.gif', '.png'],
 }
 FILEBROWSER_VERSIONS = {
-     'admin_thumbnail': {'verbose_name': 'Admin Thumbnail', 'width': 60, 'height': 60, 'opts': 'crop'},
+  'admin_thumbnail': {'verbose_name': 'Admin Thumbnail', 'width': 60, 'height': 60, 'opts': 'crop'},
   'thumbnail': {'verbose_name': 'Thumbnail (1 col)', 'width': 60, 'height': 60, 'opts': 'crop'},
   'small': {'verbose_name': 'Small (2 col)', 'width': 140, 'height': '', 'opts': ''},
   'medium': {'verbose_name': 'Medium (4col )', 'width': 300, 'height': '', 'opts': ''},

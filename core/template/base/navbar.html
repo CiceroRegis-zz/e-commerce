@@ -41,9 +41,10 @@
 
     {% if request.user.is_authenticated %}
     <div class="row">
-      <div class="col-sm-6 col-md-12 col-lg-12" >
-      <p class="text-white mr-sm-2"  style="padding-top:10px;">Usuário, {{ user.username }}</p>
+      <div class="col-sm-6 col-md-6 col-lg-12" >
+      <p class="text-white mr-sm-2"  style="padding-top:10px;">Usuário, {{ user.first_name | truncatewords:12 }} | {% if user.get_group_permissions %}<a class="text-white mr-sm-2" href="{% url 'admin:index' %}" target="_blank">Admin</a>{% endif %} </p>
     </div>
+
   </div>
     {% endif %}
   </div>
